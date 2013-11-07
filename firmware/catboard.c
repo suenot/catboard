@@ -75,9 +75,9 @@
 #define KEY_PRESSED_CTRL	5
 #define KEY_PRESSED_PREV	6
 
-//#include "qwerty.h"
+#include "qwerty.h"
 //#include "dvorak.h"
-#include "jcuken.h"
+//#include "jcuken.h"
 
 //#include "at90usb162.h"
 #include "at90usb162mu.h"
@@ -119,7 +119,7 @@ uint8_t queue[7] = {0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
 uint8_t mod_keys = 0;
 uint8_t *prev_layer = 0;
 
-uint8_t turbo_repeat = 1;
+uint8_t turbo_repeat = 0;
 uint8_t locked = 0;
 uint8_t led = 1; // LED light
 
