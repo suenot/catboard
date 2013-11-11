@@ -294,6 +294,10 @@ void key_press(uint8_t key_id) {
 	uint8_t mods_pressed = (mod_keys & (KEY_CTRL|KEY_RIGHT_CTRL|KEY_ALT|KEY_RIGHT_ALT|KEY_GUI|KEY_RIGHT_GUI));
 	pressed[key_id] = (pressed[FN_KEY_ID] ? KEY_PRESSED_FN : (mods_pressed ? KEY_PRESSED_MODS : -1));
 	
+	if (key_id==FN_KEY_ID && led==1)	{
+		LED_ON;
+	}
+	
 	uint8_t key_code = ((pressed[key_id]==KEY_PRESSED_FN) ? layer_fn[key_id] : layout[key_id]);
 	if (key_code==NULL) {
 		key_code = layout[key_id];
@@ -354,6 +358,7 @@ void key_press(uint8_t key_id) {
 			send();
 		} else if (key_code==KEY_TURBO_REPEAT) { // TURBO_REPEAT ON/OFF
 			turbo_repeat = ! turbo_repeat;
+			blink_leds();
 		} else if (key_code==KEY_MY_SHIFT) { // My Shift
 			mod_keys |= KEY_SHIFT;
 			send();
@@ -374,8 +379,7 @@ void key_press(uint8_t key_id) {
 			if (locked) {
 				locked = 0;
 				if (led) {
-					if (layout==layer1 || prev_layer==layer1) LED_BLUE_ON;
-					if (layout==layer2 || prev_layer==layer2) LED_RED_ON;
+					restore_leds();
 				}
 			} else {
 				locked = 1;
@@ -392,8 +396,7 @@ void key_press(uint8_t key_id) {
 				LED_BLUE_OFF;
 			} else {
 				led = 1;
-				if (layout==layer1 || prev_layer==layer1) LED_BLUE_ON;
-				if (layout==layer2 || prev_layer==layer2) LED_RED_ON;
+				restore_leds();
 			}
 		}
 	} else if (key_code>=KEY_LCTRL) { // Mod keys
@@ -453,6 +456,9 @@ void key_release(uint8_t key_id) {
 	uint8_t i;
 	int8_t pressed_key_id = pressed[key_id];
 	uint8_t key_code = ((pressed_key_id==KEY_PRESSED_FN) ? layer_fn[key_id] : layout[key_id]);
+	if (pressed_key_id!=KEY_PRESSED_FN) {
+		LED_OFF;
+	}
 	if (pressed_key_id==KEY_PRESSED_PREV && prev_layer) {
 		key_code = prev_layer[key_id];
 	}
@@ -616,4 +622,29 @@ uint8_t get_code(uint8_t key_id) {
 		}
 	}
 	return key_code;
+}
+
+void restore_leds()
+{
+	if (layout==layer1 || prev_layer==layer1) LED_BLUE_ON;
+	if (layout==layer2 || prev_layer==layer2) LED_RED_ON;
+}
+
+void blink_leds()
+{
+	LED_RED_ON;
+	LED_BLUE_ON;
+	wait(100);
+	LED_RED_OFF;
+	LED_BLUE_OFF;
+	restore_leds();
+}
+
+void wait(uint8_t so_much)
+{
+	uint8_t timeout=UDFNUML+so_much;
+	while(1)
+	{
+		if(timeout==UDFNUML) break;
+	}
 }
