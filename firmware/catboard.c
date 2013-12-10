@@ -47,6 +47,7 @@
 #define KEY_LAYER2			110
 #define KEY_MACRO			111
 // ...
+#define KEY_ALT_ENTER		118
 #define KEY_MY_SHIFT		119
 #define KEY_TYPO_MODE		120
 #define KEY_LED				121 // (+Shift)
@@ -99,7 +100,7 @@
 uint8_t os_mode = 1;
 
 uint8_t caps_lock_led = 0;
-
+uint8_t  disable_key_my_shift = 0;
 // 0x00-0x7F - normal keys
 // 0x80-0xF0 - mod_keys | 0x80
 // 0xF1-0xFF - catboard keys
@@ -326,14 +327,28 @@ void key_press(uint8_t key_id) {
 				_delay_ms(50);
 				send();
 			}
+		} else if (key_code==KEY_ALT_ENTER) {
+			if (!mod_keys) {
+				mod_keys |= (KEY_ALT);
+			} else {
+					pressed[key_id] = KEY_PRESSED_ALT;
+				}
+				keyboard_modifier_keys = mod_keys;
+				keyboard_keys[0] = KEY_ENTER;
+				usb_keyboard_send();
+				_delay_ms(50);
+				send();			
 		} else if (key_code==KEY_FN_LOCK) { // FnLock
 			if (pressed[key_id]==KEY_PRESSED_FN && (mod_keys & (KEY_SHIFT|KEY_RIGHT_SHIFT))) {
 				if (prev_layer) { // FnLock Off
 					layout = prev_layer;
+					restore_leds();
 					prev_layer = 0;
 				} else { // FnLock On
 					prev_layer = layout;
 					layout = layer_fnlock;
+					LED_RED_ON;
+					LED_BLUE_ON;
 				}
 			}
 		} else if (key_code==KEY_OS_MODE) { // Mac mode
@@ -463,9 +478,9 @@ void key_release(uint8_t key_id) {
 		key_code = prev_layer[key_id];
 	}
 	pressed[key_id] = 0;
-	if (locked) return;
+	//if (locked) return;
 	if (key_code>=KEY_CB_START) { // Catboard keys release
-		if (key_code==KEY_ALT_TAB && pressed_key_id!=KEY_PRESSED_ALT) { // AltTab: Alt release
+		if ((key_code==KEY_ALT_TAB || key_code==KEY_ALT_ENTER) && pressed_key_id!=KEY_PRESSED_ALT) { // AltTab: Alt release
 			mod_keys &= ~(KEY_ALT);
 			send();
 		} else if (key_code==KEY_LAYER1 && pressed_key_id==KEY_PRESSED_CTRL) { // Layer1: Ctrl release
@@ -624,14 +639,19 @@ uint8_t get_code(uint8_t key_id) {
 	return key_code;
 }
 
-void restore_leds()
+void restore_leds(void)
 {
+	LED_RED_OFF;
+	LED_BLUE_OFF;
 	if (layout==layer1 || prev_layer==layer1) LED_BLUE_ON;
 	if (layout==layer2 || prev_layer==layer2) LED_RED_ON;
 }
 
-void blink_leds()
-{
+void blink_leds(void)
+{	
+	LED_RED_OFF;
+	LED_BLUE_OFF;
+	wait(150);
 	LED_RED_ON;
 	LED_BLUE_ON;
 	wait(100);
