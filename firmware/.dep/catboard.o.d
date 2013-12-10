@@ -1,7 +1,7 @@
-catboard.o: catboard.c usb_keyboard.h jcuken.h at90usb162mu.h
+catboard.o: catboard.c usb_keyboard.h qwerty.h at90usb162mu.h
 
 usb_keyboard.h:
 
-jcuken.h:
+qwerty.h:
 
 at90usb162mu.h:
