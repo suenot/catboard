@@ -2101,7 +2101,7 @@
  2152 00ed 14        		.byte	20
  2153 00ee 04        		.byte	4
  2154 00ef 68        		.byte	104
- 2155 00f0 02        		.byte	2
+ 2155 00f0 6A        		.byte	106
  2156 00f1 1F        		.byte	31
  2157 00f2 1A        		.byte	26
  2158 00f3 16        		.byte	22
@@ -2146,7 +2146,7 @@
  2197 011a 13        		.byte	19
  2198 011b 33        		.byte	51
  2199 011c 31        		.byte	49
- 2200 011d 02        		.byte	2
+ 2200 011d 66        		.byte	102
  2201 011e 2D        		.byte	45
  2202 011f 2F        		.byte	47
  2203 0120 34        		.byte	52
@@ -2222,50 +2222,50 @@
  2431               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 catboard.c
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2      *ABS*:0000003f __SREG__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:3      *ABS*:0000003e __SP_H__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:4      *ABS*:0000003d __SP_L__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:5      *ABS*:00000034 __CCP__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:19     .text.init_ports:00000000 init_ports
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:44     .text.caps_lock_change_layer:00000000 caps_lock_change_layer
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2216   .bss:00000000 caps_lock_led
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2228   .data:00000124 layout
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2017   .data:0000006f layer1
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2081   .data:000000ab layer_fn
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2252   .bss:00000003 prev_layer
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2270   .data:0000012d led
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1903   .data:00000000 layer2
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:117    .text.get_code:00000000 get_code
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2      *ABS*:0000003f __SREG__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:5      *ABS*:00000034 __CCP__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:19     .text.init_ports:00000000 init_ports
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:44     .text.caps_lock_change_layer:00000000 caps_lock_change_layer
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2216   .bss:00000000 caps_lock_led
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2228   .data:00000124 layout
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2017   .data:0000006f layer1
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2081   .data:000000ab layer_fn
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2252   .bss:00000003 prev_layer
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2270   .data:0000012d led
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1903   .data:00000000 layer2
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:117    .text.get_code:00000000 get_code
                             *COM*:0000003c pressed
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:181    .text.restore_leds:00000000 restore_leds
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:223    .text.wait:00000000 wait
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:247    .text.blink_leds:00000000 blink_leds
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:282    .text.send:00000000 send
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2233   .data:00000126 queue
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2246   .bss:00000002 mod_keys
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:323    .text.repeat_tick:00000000 repeat_tick
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2300   .bss:0000000d repeat_time
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2294   .bss:0000000b release_time
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2258   .bss:00000005 turbo_repeat
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2275   .data:0000012e last_key
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2288   .bss:00000009 press_time2
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2282   .bss:00000007 press_time
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:474    .text.change_layout:00000000 change_layout
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2209   .data:00000123 os_mode
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:572    .text.key_release:00000000 key_release
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:990    .text.key_press:00000000 key_press
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2264   .bss:00000006 locked
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2145   .data:000000e7 layer_fnlock
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1594   .text.poll:00000000 poll
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1967   .data:0000003c row_port
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1976   .data:00000046 row_bit
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1985   .data:0000004b col_pin
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2001   .data:00000063 col_bit
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1788   .text.init:00000000 init
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:1855   .text.main:00000000 main
-C:\Users\Leo\AppData\Local\Temp/ccWLs7Ca.s:2222   .bss:00000001 disable_key_my_shift
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:181    .text.restore_leds:00000000 restore_leds
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:223    .text.wait:00000000 wait
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:247    .text.blink_leds:00000000 blink_leds
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:282    .text.send:00000000 send
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2233   .data:00000126 queue
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2246   .bss:00000002 mod_keys
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:323    .text.repeat_tick:00000000 repeat_tick
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2300   .bss:0000000d repeat_time
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2294   .bss:0000000b release_time
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2258   .bss:00000005 turbo_repeat
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2275   .data:0000012e last_key
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2288   .bss:00000009 press_time2
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2282   .bss:00000007 press_time
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:474    .text.change_layout:00000000 change_layout
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2209   .data:00000123 os_mode
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:572    .text.key_release:00000000 key_release
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:990    .text.key_press:00000000 key_press
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2264   .bss:00000006 locked
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2145   .data:000000e7 layer_fnlock
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1594   .text.poll:00000000 poll
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1967   .data:0000003c row_port
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1976   .data:00000046 row_bit
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1985   .data:0000004b col_pin
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2001   .data:00000063 col_bit
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1788   .text.init:00000000 init
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:1855   .text.main:00000000 main
+C:\Users\Leo\AppData\Local\Temp/ccDbhnd0.s:2222   .bss:00000001 disable_key_my_shift
 
 UNDEFINED SYMBOLS
 keyboard_leds
