@@ -1,0 +1,6 @@
+/tmp
+/.sass-cache
+/bild
+.DS_Store
+*.sublime-project
+*.sublime-workspace
